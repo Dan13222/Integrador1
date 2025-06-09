@@ -1,0 +1,26 @@
+[ {
+  "nombrePaciente" : "dan",
+  "correoElectronico" : "u22231453@utp.edu.pe",
+  "tipoError" : "Error de datos",
+  "descripcionProblema" : "errores"
+}, {
+  "nombrePaciente" : "Anais",
+  "correoElectronico" : "u222@gmail.com",
+  "tipoError" : "Error de datos",
+  "descripcionProblema" : "falla todo"
+}, {
+  "nombrePaciente" : "Juan",
+  "correoElectronico" : "juan@gmail.com",
+  "tipoError" : "Error de sistema",
+  "descripcionProblema" : "Fallos "
+}, {
+  "nombrePaciente" : "Oscar",
+  "correoElectronico" : "oscar@gmail.com",
+  "tipoError" : "Error de datos",
+  "descripcionProblema" : "Fallos en los datos"
+}, {
+  "nombrePaciente" : "Paul",
+  "correoElectronico" : "paul@gmail.com",
+  "tipoError" : "Error de sistema",
+  "descripcionProblema" : "nd"
+} ]

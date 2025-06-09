@@ -1,0 +1,86 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Usuarios</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+    th { background-color: #eee; }
+    #mensaje { color: red; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+
+<h2>Lista de usuarios registrados</h2>
+
+<div id="mensaje"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Contraseña</th>
+      <th>Tipo de usuario</th>
+    </tr>
+  </thead>
+  <tbody id="tablaUsuariosBody"></tbody>
+</table>
+
+<script>
+  const mensaje = document.getElementById('mensaje');
+  const tbody = document.getElementById('tablaUsuariosBody');
+
+  const adminNombre = sessionStorage.getItem('adminNombre');
+  const adminContrasena = sessionStorage.getItem('adminContrasena');
+
+  if(!adminNombre || !adminContrasena) {
+    alert('No autorizado. Debe iniciar sesión como administrador.');
+    window.location.href = 'login.html';
+  }
+
+  async function cargarUsuarios() {
+    mensaje.textContent = '';
+
+    try {
+      const res = await fetch('http://localhost:8080/api/usuarios', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ adminNombre, adminContrasena })
+      });
+
+      if(!res.ok){
+        const error = await res.json();
+        mensaje.textContent = error.mensaje || 'Error al obtener usuarios';
+        return;
+      }
+
+      const usuarios = await res.json();
+
+      tbody.innerHTML = '';
+      usuarios.forEach(u => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+          <td>${u.id}</td>
+          <td>${u.nombre}</td>
+          <td>${u.contrasena}</td>
+          <td>${u.tipoUsuario}</td>
+        `;
+        tbody.appendChild(fila);
+      });
+    } catch (err) {
+      mensaje.textContent = 'Error de conexión con el servidor.';
+    }
+  }
+
+  cargarUsuarios();
+</script>
+
+</body>
+</html>
