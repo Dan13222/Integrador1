@@ -133,33 +133,33 @@
         <table>
             <thead>
                 <tr>
-                    <th>Motivo principal</th>
-                    <th>Descripción síntomas</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
                     <th>Fecha inicio síntomas</th>
-                    <th>Antecedentes médicos</th>
-                    <th>Medicamentos</th>
-                    <th>Consultas previas</th>
+                    <th>Descripción síntomas</th>
+                    <th>DNI</th>
+                    <th>Dicapacidad</th>
                     <th>Condiciones crónicas</th>
                     <th>Otra información</th>
                     <th>Teléfono</th>
                     <th>Correo electrónico</th>
-                    <th>Contacto emergencia</th>
+                    <th>Antecedentes</th>
                     <th>Teléfono contacto</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="cita : ${citas}">
-                    <td th:text="${cita.motivoConsulta}">Motivo</td>
-                    <td th:text="${cita.descripcionSintomas}">Síntomas</td>
+                    <td th:text="${cita.motivoConsulta}">Nombre</td>
+                    <td th:text="${cita.descripcionSintomas}">Apellido</td>
                     <td th:text="${cita.fechaInicioSintomas}">Fecha</td>
-                    <td th:text="${cita.antecedentesMedicos}">Antecedentes</td>
-                    <td th:text="${cita.medicamentosActuales}">Medicamentos</td>
-                    <td th:text="${cita.consultasPrevias}">Consultas</td>
-                    <td th:text="${cita.condicionesCronicas}">Condiciones</td>
+                    <td th:text="${cita.antecedentesMedicos}">Descripcion</td>
+                    <td th:text="${cita.medicamentosActuales}">DNI</td>
+                    <td th:text="${cita.consultasPrevias}">Discapacidad</td>
+                    <td th:text="${cita.condicionesCronicas}">Condiciones </td>
                     <td th:text="${cita.otraInformacion}">Otra Info</td>
                     <td th:text="${cita.telefonoPersonal}">Teléfono</td>
                     <td th:text="${cita.correoElectronico}">Correo</td>
-                    <td th:text="${cita.contactoEmergencia}">Contacto</td>
+                    <td th:text="${cita.contactoEmergencia}">Antecedentes</td>
                     <td th:text="${cita.telefonoContacto}">Teléfono Contacto</td>
                 </tr>
             </tbody>

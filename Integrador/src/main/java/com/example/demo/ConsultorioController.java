@@ -1,10 +1,10 @@
 package com.example.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.collect.ImmutableList;
-import org.apache.commons.io.FileUtils;
+import com.google.common.collect.ImmutableList; //  Guava
+import org.apache.commons.io.FileUtils;  //  Apache commons ID
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook; //  Apache Poi 
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -73,8 +73,11 @@ public class ConsultorioController {
         reservasActuales.add(reserva);
         guardarReservas(reservasActuales);
         model.addAttribute("mensaje", "Reserva de consultorio realizada con éxito");
-        return "redirect:/consultorios/lista"; // Redirige a la lista de reservas
+        
+        // Redirigir al menú del médico en lugar de la lista
+        return "redirect:/MenuMedico.html";
     }
+
 
     @Controller
     public class ReservadosController {
@@ -85,6 +88,8 @@ public class ConsultorioController {
             return "reservados"; 
         }
     }
+    
+  
     
     @PostMapping("/eliminar-todo")
     public String eliminarTodasLasReservas() {

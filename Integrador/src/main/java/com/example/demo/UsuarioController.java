@@ -105,7 +105,26 @@ public class UsuarioController {
     public String menuPaciente() {
         return "MenuPaciente";
     }
+    
+    @GetMapping("/Especialidades.html")
+    public String especialidades() {
+        // Retorna la vista llamada "Especialidades.html"
+        // Debe estar en src/main/resources/templates si usas Thymeleaf (o src/main/resources/static si es archivo puro)
+        return "Especialidades";
+    }
 
+    
+    @GetMapping("/serviciosmedicos.html")
+    public String serviciosmedicos() {
+        // Retorna la vista llamada "Especialidades.html"
+        // Debe estar en src/main/resources/templates si usas Thymeleaf (o src/main/resources/static si es archivo puro)
+        return "serviciosmedicos";
+    }
+
+    
+    
+    
+    
     @GetMapping("/MenuAdmin.html")
     public String menuAdmin() {
         return "MenuAdmin";

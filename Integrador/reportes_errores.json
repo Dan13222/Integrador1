@@ -23,4 +23,9 @@
   "correoElectronico" : "paul@gmail.com",
   "tipoError" : "Error de sistema",
   "descripcionProblema" : "nd"
+}, {
+  "nombrePaciente" : "Jhon",
+  "correoElectronico" : "jhon@gmail.com",
+  "tipoError" : "Error de datos",
+  "descripcionProblema" : "Error en registro de cita medica"
 } ]

@@ -131,22 +131,22 @@
         <h1><i class="bi bi-calendar-plus-fill"></i> Registrar Cita Médica</h1>
 
         <!-- Datos complementarios -->
-        <label for="motivoConsulta">Motivo principal de la consulta:</label>
+        <label for="motivoConsulta">Nombre</label>
         <textarea id="motivoConsulta" th:field="*{motivoConsulta}" placeholder="Describe la dolencia o síntoma principal" rows="2"></textarea>
 
-        <label for="descripcionSintomas">Descripción detallada de los síntomas actuales:</label>
+        <label for="descripcionSintomas">Apellido</label>
         <textarea id="descripcionSintomas" th:field="*{descripcionSintomas}" placeholder="Describe los síntomas actuales" rows="3"></textarea>
 
         <label for="fechaInicioSintomas">Fecha aproximada de inicio de los síntomas:</label>
         <input type="date" id="fechaInicioSintomas" th:field="*{fechaInicioSintomas}" />
 
-        <label for="antecedentesMedicos">Antecedentes médicos personales:</label>
+        <label for="antecedentesMedicos">Descripcion de sintomas </label>
         <textarea id="antecedentesMedicos" th:field="*{antecedentesMedicos}" placeholder="Enfermedades anteriores, cirugías, alergias, etc." rows="2"></textarea>
 
-        <label for="medicamentosActuales">Medicamentos que está tomando actualmente:</label>
+        <label for="medicamentosActuales">DNI</label>
         <textarea id="medicamentosActuales" th:field="*{medicamentosActuales}" placeholder="Nombre y dosis si conoce" rows="2"></textarea>
 
-        <label for="consultasPrevias">¿Ha consultado antes por este problema?</label>
+        <label for="consultasPrevias">Discapacidad</label>
         <textarea id="consultasPrevias" th:field="*{consultasPrevias}" placeholder="Fecha aproximada y lugar" rows="2"></textarea>
 
         <label for="condicionesCronicas">Condiciones médicas crónicas que padece actualmente:</label>
@@ -162,13 +162,17 @@
         <label for="correoElectronico">Correo electrónico:</label>
         <input type="email" id="correoElectronico" th:field="*{correoElectronico}" placeholder="Correo electrónico" />
 
-        <label for="contactoEmergencia">Nombre completo persona contacto emergencia:</label>
+        <label for="contactoEmergencia">Antecedentes</label>
         <input type="text" id="contactoEmergencia" th:field="*{contactoEmergencia}" placeholder="Nombre de contacto" />
 
         <label for="telefonoContacto">Teléfono persona contacto:</label>
         <input type="tel" id="telefonoContacto" th:field="*{telefonoContacto}" placeholder="Teléfono de contacto" />
 
         <button type="submit"><i class="bi bi-send-fill"></i> Enviar Cita</button>
+        
+         <div class="center">
+            <a href="/MenuPaciente.html"><i class="bi bi-arrow-left-circle-fill"></i> Volver al Menú Principal</a>
+        </div>
     </form>
 </body>
 </html>

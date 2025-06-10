@@ -1,24 +1,114 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <title>Lista de Usuarios</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
-    th { background-color: #eee; }
-    #mensaje { color: red; margin-bottom: 1rem; }
+    /* Fondo dinámico animado */
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-45deg, #00ffff, #003344, #00c2cb, #006677);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h2 {
+      text-align: center;
+      color: cyan;
+      text-shadow: 0 0 10px #00ffff;
+      margin-bottom: 2rem;
+    }
+
+    #mensaje {
+      color: #ff6666;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 30, 40, 0.8);
+      border: 2px solid cyan;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      border-radius: 12px;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in;
+    }
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #00ffff88;
+      color: #ccffff;
+    }
+
+    th {
+      background-color: rgba(0, 200, 255, 0.3);
+      color: cyan;
+      font-weight: bold;
+      text-shadow: 0 0 8px #00ffff;
+    }
+
+    tr:hover {
+      background-color: rgba(0, 255, 255, 0.1);
+      transition: background 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      tr {
+        margin-bottom: 1rem;
+        border: 1px solid cyan;
+        border-radius: 10px;
+        padding: 1rem;
+        background-color: rgba(0, 30, 40, 0.85);
+      }
+
+      td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        font-weight: bold;
+        color: cyan;
+      }
+
+      th {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
 
 <h2>Lista de usuarios registrados</h2>
-
 <div id="mensaje"></div>
 
 <table>
@@ -40,7 +130,7 @@
   const adminNombre = sessionStorage.getItem('adminNombre');
   const adminContrasena = sessionStorage.getItem('adminContrasena');
 
-  if(!adminNombre || !adminContrasena) {
+  if (!adminNombre || !adminContrasena) {
     alert('No autorizado. Debe iniciar sesión como administrador.');
     window.location.href = 'login.html';
   }
@@ -51,29 +141,30 @@
     try {
       const res = await fetch('http://localhost:8080/api/usuarios', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ adminNombre, adminContrasena })
       });
 
-      if(!res.ok){
+      if (!res.ok) {
         const error = await res.json();
         mensaje.textContent = error.mensaje || 'Error al obtener usuarios';
         return;
       }
 
       const usuarios = await res.json();
-
       tbody.innerHTML = '';
+
       usuarios.forEach(u => {
         const fila = document.createElement('tr');
         fila.innerHTML = `
-          <td>${u.id}</td>
-          <td>${u.nombre}</td>
-          <td>${u.contrasena}</td>
-          <td>${u.tipoUsuario}</td>
+          <td data-label="ID">${u.id}</td>
+          <td data-label="Nombre">${u.nombre}</td>
+          <td data-label="Contraseña">${u.contrasena}</td>
+          <td data-label="Tipo de usuario">${u.tipoUsuario}</td>
         `;
         tbody.appendChild(fila);
       });
+
     } catch (err) {
       mensaje.textContent = 'Error de conexión con el servidor.';
     }

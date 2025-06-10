@@ -9,64 +9,88 @@
 
 <style>
   body {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #00ffff, #003344);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: backgroundShift 10s infinite alternate;
+    background-size: 400% 400%;
+  }
+
+  @keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
   }
 
   .login-container {
-    background: white;
+    background: rgba(0, 30, 40, 0.85);
     padding: 2rem 3rem;
     border-radius: 1rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 0 20px 5px cyan;
+    border: 2px solid cyan;
     width: 100%;
-    max-width: 400px;
-    transition: transform 0.3s ease;
+    max-width: 420px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(8px);
   }
 
   .login-container:hover {
     transform: scale(1.03);
+    box-shadow: 0 0 30px 10px #00ffff;
   }
 
   h2 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #4b0082;
+    color: cyan;
     font-weight: 700;
     letter-spacing: 1.2px;
+    text-shadow: 0 0 10px #00ffff;
   }
 
   label {
     font-weight: 600;
-    color: #333;
+    color: #cceeff;
   }
 
   input[type="text"],
   input[type="password"],
   select {
+    background-color: #001f2f;
+    border: 1px solid cyan;
+    color: #fff;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  input[type="text"]::placeholder,
+  input[type="password"]::placeholder {
+    color: #99eaea;
   }
 
   input[type="text"]:focus,
   input[type="password"]:focus,
   select:focus {
-    border-color: #764ba2;
-    box-shadow: 0 0 8px #764ba2;
+    border-color: #00ffff;
+    box-shadow: 0 0 8px #00ffff;
     outline: none;
   }
 
   button {
+    background-color: #00bcd4;
+    border: none;
+    color: #fff;
+    font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
 
   button:hover {
-    background-color: #5a3780 !important;
+    background-color: #00ffff !important;
+    color: #000;
     transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(118, 75, 162, 0.6);
+    box-shadow: 0 0 12px 4px #00ffff;
   }
 
   .btn-group {
@@ -80,6 +104,16 @@
   .btn-group button {
     flex: 1;
     min-width: 100px;
+    background-color: transparent;
+    border: 1px solid cyan;
+    color: cyan;
+    transition: all 0.3s ease;
+  }
+
+  .btn-group button:hover {
+    background-color: cyan;
+    color: #000;
+    box-shadow: 0 0 10px cyan;
   }
 </style>
 </head>
@@ -93,12 +127,12 @@
 
     <div class="mb-3">
       <label for="nombre" class="form-label">DNI:</label>
-      <input type="text" id="nombre" class="form-control" required />
+      <input type="text" id="nombre" class="form-control" required placeholder="Ingrese su DNI" />
     </div>
 
     <div class="mb-3">
       <label for="contrasena" class="form-label">Contraseña:</label>
-      <input type="password" id="contrasena" class="form-control" required />
+      <input type="password" id="contrasena" class="form-control" required placeholder="Ingrese su contraseña" />
     </div>
 
     <div class="mb-4">
@@ -116,9 +150,9 @@
   </form>
 
   <div class="btn-group">
-    <button id="btnInvitado" class="btn btn-outline-secondary">Entrar como invitado</button>
-    <button id="btnAlmacenUsuarios" class="btn btn-outline-secondary">Almacenamiento de usuarios</button>
-    <button id="btnRegistrarUsuario" class="btn btn-outline-secondary">Registrar nuevo usuario</button>
+    <button id="btnInvitado" class="btn">Entrar como invitado</button>
+    <button id="btnAlmacenUsuarios" class="btn">Almacenamiento de usuarios</button>
+    <button id="btnRegistrarUsuario" class="btn">Registrar nuevo usuario</button>
   </div>
 
 </div>
@@ -170,11 +204,8 @@
       return;
     }
 
-    // Guardar credenciales para usuarios.html
     localStorage.setItem('adminNombre', adminNombre);
     localStorage.setItem('adminContrasena', adminContrasena);
-
-    // Redirigir a usuarios.html
     window.location.href = 'usuarios.html';
   });
 
@@ -208,4 +239,3 @@
 
 </body>
 </html>
-

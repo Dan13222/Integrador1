@@ -11,4 +11,17 @@
   "correoElectronico" : "",
   "contactoEmergencia" : "",
   "telefonoContacto" : ""
+}, {
+  "motivoConsulta" : ".-.-.-.-..........--",
+  "descripcionSintomas" : "",
+  "fechaInicioSintomas" : "",
+  "antecedentesMedicos" : "",
+  "medicamentosActuales" : "",
+  "consultasPrevias" : "",
+  "condicionesCronicas" : "",
+  "otraInformacion" : "",
+  "telefonoPersonal" : "",
+  "correoElectronico" : "",
+  "contactoEmergencia" : "",
+  "telefonoContacto" : ""
 } ]
