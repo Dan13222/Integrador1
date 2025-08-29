@@ -32,6 +32,68 @@
             letter-spacing: 1px;
             transition: color 0.3s ease;
         }
+        
+
+/* Hover sobre el logo */
+.navbar .navbar-brand:hover {
+    color: #00bcd4;
+    text-shadow: 0 0 18px rgba(0, 224, 255, 1), 0 0 30px rgba(0, 224, 255, 0.9);
+}
+
+/* Estilos del menú */
+.navbar-nav .nav-item .nav-link {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: #f0f0f0;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link.active {
+    color: #00e0ff;
+    background: rgba(0, 224, 255, 0.2);
+    text-shadow: 0 0 8px rgba(0, 224, 255, 0.7);
+    transform: scale(1.05);
+}
+
+/* Estilos para el botón del menú desplegable */
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+    color: #00e0ff;
+}
+
+/* Íconos del toggle */
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3e%3cpath stroke="%2300e0ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h22M4 12h22M4 18h22"%3e%3c/path%3e%3c/svg%3e');
+}
+
+/* Estilos para los elementos del menú cuando está abierto */
+.navbar-collapse {
+    transition: max-height 0.3s ease;
+    z-index: 10;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+     
+        
+        
     </style>
 </head>
 <body>
