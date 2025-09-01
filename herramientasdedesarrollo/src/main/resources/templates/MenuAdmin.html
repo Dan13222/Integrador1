@@ -181,7 +181,135 @@
     transform: scale(1.1);
 }
      
-        
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    #heroCarousel {
+        height: 350px; /* Ajustamos la altura del carrusel en pantallas pequeñas */
+    }
+
+    .carousel-caption h3 {
+        font-size: 1.8rem; /* Reducir tamaño de los títulos */
+    }
+
+    .carousel-caption p {
+        font-size: 1rem; /* Reducir tamaño del texto */
+    }
+
+    .btn-primary-custom {
+        padding: 10px 25px; /* Ajustar padding del botón */
+        font-size: 1rem; /* Reducir tamaño de fuente */
+    }
+}
+
+      
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     /* Sección Bienvenida */
+.citas-welcome-section {
+    background: radial-gradient(circle, rgba(34, 34, 34, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%); /* Fondo oscuro con gradiente radial */
+    padding: 6rem 2rem; /* Espaciado ajustado */
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.3); /* Sombra oscura y profunda */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.citas-welcome-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/tech-hexagons.png') repeat;
+    opacity: 0.2; /* Fondo de textura sutil */
+    z-index: -1;
+}
+
+/* Tarjeta de bienvenida */
+.citas-card {
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para la tarjeta */
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Sombra de profundidad */
+}
+
+.citas-card:hover {
+    transform: translateY(-10px); /* Elevación marcada */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); /* Aumento de sombra al hover */
+}
+
+/* Icono de Corazón Pulsante */
+.citas-card .bi-heart-pulse-fill {
+    font-size: 5rem; /* Icono grande */
+    color: #00e0ff; /* Color neón cian */
+    animation: pulse 1.2s infinite ease-in-out; /* Animación de pulso */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
+
+/* Estilos del título */
+.citas-card h2 {
+    font-family: 'Orbitron', sans-serif; /* Fuente futurista y tecnológica */
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #00e0ff; /* Azul eléctrico */
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 224, 255, 0.8), 0 0 20px rgba(0, 224, 255, 0.6); /* Efecto de resplandor de neón */
+}
+
+/* Estilos del párrafo */
+.citas-card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #d0d0d0; /* Gris suave */
+    margin-bottom: 2rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Sutil resplandor en el texto */
+}
+
+/* Estilo del botón */
+.citas-card .btn-glow {
+    background-color: #00e0ff; /* Cian neón */
+    color: #000;
+    padding: 1rem 2.5rem;
+    border-radius: 50px; /* Borde redondeado */
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid #00e0ff;
+    outline: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+}    
         
     </style>
 </head>
