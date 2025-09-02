@@ -310,6 +310,268 @@
     transition: all 0.3s ease;
     display: inline-block;
 }    
+    
+
+
+/* Hover sobre el botón */
+.citas-card .btn-glow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 224, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.citas-card .btn-glow:hover {
+    background-color: #00bcd4; /* Cambiar a un tono más oscuro de cian */
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+.citas-card .btn-glow:hover::before {
+    width: 300%;
+    height: 300%; /* Expansión del brillo al hacer hover */
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .citas-welcome-section {
+        padding: 4rem 2rem; /* Ajuste de padding en dispositivos pequeños */
+    }
+
+    .citas-card h2 {
+        font-size: 1.8rem; /* Título más pequeño en móviles */
+    }
+
+    .citas-card p {
+        font-size: 1rem; /* Tamaño de párrafo reducido en móviles */
+    }
+
+    .citas-card .btn-glow {
+        width: 100%; /* El botón ocupa todo el ancho en móviles */
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Sección Especialidades */
+.especialidades-section {
+    background: radial-gradient(circle, rgba(34, 34, 34, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
+    padding: 6rem 2rem;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.especialidades-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/tech-hexagons.png') repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Título de Especialidades */
+.especialidades-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: #00e0ff;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px rgba(0, 224, 255, 0.8), 0 0 25px rgba(0, 224, 255, 0.6);
+}
+
+/* Estilo del párrafo */
+.especialidades-section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Cards de Especialidades */
+.especialidad-card {
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.especialidad-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Icono en las Cards */
+.icon-box {
+    font-size: 4rem;
+    color: #00e0ff;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.icon-box:hover {
+    color: #ff4081; /* Cambio de color al hover */
+}
+
+.icon-box.glowing-icon {
+    animation: glow 1.5s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 224, 255, 0.8), 0 0 15px rgba(0, 224, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(0, 224, 255, 1), 0 0 30px rgba(0, 224, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(0, 224, 255, 0.8), 0 0 15px rgba(0, 224, 255, 0.5);
+    }
+}
+
+/* Títulos de las especialidades */
+.especialidad-card h5 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
+}
+
+/* Descripción en las Cards */
+.especialidad-card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Botón de ver todas las especialidades */
+.especialidades-section .btn {
+    background-color: #00e0ff;
+    color: #000;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+/* Efecto hover sobre el botón */
+.especialidades-section .btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 224, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.especialidades-section .btn:hover {
+    background-color: #00bcd4;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+.especialidades-section .btn:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .especialidades-section {
+        padding: 4rem 2rem; /* Ajuste del espaciado en pantallas pequeñas */
+    }
+
+    .especialidades-title {
+        font-size: 2.2rem; /* Tamaño más pequeño para el título */
+    }
+
+    .especialidades-section p {
+        font-size: 1.1rem; /* Tamaño más pequeño del párrafo */
+    }
+
+    .especialidad-card {
+        padding: 1.5rem; /* Espaciado más pequeño en las cards */
+    }
+
+    .especialidad-card h5 {
+        font-size: 1.1rem; /* Título más pequeño */
+    }
+
+    .especialidad-card p {
+        font-size: 0.9rem; /* Descripción más pequeña */
+    }
+
+    .especialidades-section .btn {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+
+    
+    
+    
+    
         
     </style>
 </head>
