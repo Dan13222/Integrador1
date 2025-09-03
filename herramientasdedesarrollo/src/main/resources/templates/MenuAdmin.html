@@ -567,6 +567,132 @@
     }
 }
 
+    
+      
+      /* Sección Servicios Médicos */
+.servicios-section {
+    background: radial-gradient(circle, rgba(34, 34, 34, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
+    padding: 6rem 2rem;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.servicios-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/tech-hexagons.png') repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Título de Servicios Médicos */
+.servicios-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: #00e0ff;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px rgba(0, 224, 255, 0.8), 0 0 25px rgba(0, 224, 255, 0.6);
+}
+
+/* Estilo del párrafo */
+.servicios-section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Cards de Servicios Médicos */
+.servicio-card {
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.servicio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Icono en las Cards */
+.icon-box {
+    font-size: 4rem;
+    color: #00e0ff;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.icon-box:hover {
+    color: #ff4081; /* Cambio de color al hover */
+}
+
+.icon-box.glowing-icon {
+    animation: glow 1.5s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 224, 255, 0.8), 0 0 15px rgba(0, 224, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(0, 224, 255, 1), 0 0 30px rgba(0, 224, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(0, 224, 255, 0.8), 0 0 15px rgba(0, 224, 255, 0.5);
+    }
+}
+
+/* Títulos de los servicios */
+.servicio-card h5 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
+}
+
+/* Descripción en las Cards */
+.servicio-card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Botón de ver todos los servicios */
+.servicios-section .btn {
+    background-color: #00e0ff;
+    color: #000;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 2rem;
+}
 
     
     
