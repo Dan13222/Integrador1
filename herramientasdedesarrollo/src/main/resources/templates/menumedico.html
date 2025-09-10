@@ -6,33 +6,32 @@
     <title>Centro Médico N & A S.A.C</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+       
+       
+       /* Navbar */
+.navbar {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 224, 255, 0.6));
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: all 0.4s ease-in-out;
+}
 
-
-<style>
-        /* Navbar */
-        .navbar {
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 224, 255, 0.6));
-            padding: 1.5rem 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            z-index: 999;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            transition: all 0.4s ease-in-out;
-        }
-
-        /* Logo */
-        .navbar .navbar-brand {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #00e0ff;
-            text-transform: uppercase;
-            text-shadow: 0 0 12px rgba(0, 224, 255, 0.9), 0 0 20px rgba(0, 224, 255, 0.7);
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-        
+/* Logo */
+.navbar .navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00e0ff;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(0, 224, 255, 0.9), 0 0 20px rgba(0, 224, 255, 0.7);
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
 
 /* Hover sobre el logo */
 .navbar .navbar-brand:hover {
@@ -91,6 +90,8 @@
     }
 }
 
+       
+       
 
        /* Carrusel */
 #heroCarousel {
@@ -180,7 +181,7 @@
     background-color: #00bcd4;
     transform: scale(1.1);
 }
-     
+
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
     #heroCarousel {
@@ -309,9 +310,7 @@
     position: relative;
     transition: all 0.3s ease;
     display: inline-block;
-}    
-    
-
+}
 
 /* Hover sobre el botón */
 .citas-card .btn-glow::before {
@@ -509,193 +508,6 @@
 }
 
 /* Efecto hover sobre el botón */
-.especialidades-section .btn::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(0, 224, 255, 0.3);
-    border-radius: 50%;
-    transition: all 0.5s ease;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
-
-.especialidades-section .btn:hover {
-    background-color: #00bcd4;
-    color: #fff;
-    transform: translateY(-4px);
-}
-
-.especialidades-section .btn:hover::before {
-    width: 300%;
-    height: 300%;
-}
-
-/* Media Query para pantallas pequeñas */
-@media (max-width: 768px) {
-    .especialidades-section {
-        padding: 4rem 2rem; /* Ajuste del espaciado en pantallas pequeñas */
-    }
-
-    .especialidades-title {
-        font-size: 2.2rem; /* Tamaño más pequeño para el título */
-    }
-
-    .especialidades-section p {
-        font-size: 1.1rem; /* Tamaño más pequeño del párrafo */
-    }
-
-    .especialidad-card {
-        padding: 1.5rem; /* Espaciado más pequeño en las cards */
-    }
-
-    .especialidad-card h5 {
-        font-size: 1.1rem; /* Título más pequeño */
-    }
-
-    .especialidad-card p {
-        font-size: 0.9rem; /* Descripción más pequeña */
-    }
-
-    .especialidades-section .btn {
-        width: 100%;
-        padding: 1rem;
-        text-align: center;
-    }
-}
-
-    
-      
-      /* Sección Servicios Médicos */
-.servicios-section {
-    background: radial-gradient(circle, rgba(34, 34, 34, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
-    padding: 6rem 2rem;
-    border-radius: 15px;
-    color: #fff;
-    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 1;
-}
-
-.servicios-section:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/tech-hexagons.png') repeat;
-    opacity: 0.1;
-    z-index: -1;
-}
-
-/* Título de Servicios Médicos */
-.servicios-title {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 900;
-    font-size: 3rem;
-    color: #00e0ff;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    text-shadow: 0 0 15px rgba(0, 224, 255, 0.8), 0 0 25px rgba(0, 224, 255, 0.6);
-}
-
-/* Estilo del párrafo */
-.servicios-section p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #d0d0d0;
-    margin-bottom: 3rem;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-}
-
-/* Cards de Servicios Médicos */
-.servicio-card {
-    background: rgba(0, 0, 0, 0.85);
-    border-radius: 15px;
-    padding: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    position: relative;
-}
-
-.servicio-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-}
-
-/* Icono en las Cards */
-.icon-box {
-    font-size: 4rem;
-    color: #00e0ff;
-    margin-bottom: 1.5rem;
-    transition: color 0.3s ease;
-}
-
-.icon-box:hover {
-    color: #ff4081; /* Cambio de color al hover */
-}
-
-.icon-box.glowing-icon {
-    animation: glow 1.5s infinite ease-in-out;
-}
-
-@keyframes glow {
-    0% {
-        text-shadow: 0 0 5px rgba(0, 224, 255, 0.8), 0 0 15px rgba(0, 224, 255, 0.5);
-    }
-    50% {
-        text-shadow: 0 0 15px rgba(0, 224, 255, 1), 0 0 30px rgba(0, 224, 255, 0.8);
-    }
-    100% {
-        text-shadow: 0 0 5px rgba(0, 224, 255, 0.8), 0 0 15px rgba(0, 224, 255, 0.5);
-    }
-}
-
-/* Títulos de los servicios */
-.servicio-card h5 {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: #fff;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
-}
-
-/* Descripción en las Cards */
-.servicio-card p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    color: #e0e0e0;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-}
-
-/* Botón de ver todos los servicios */
-.servicios-section .btn {
-    background-color: #00e0ff;
-    color: #000;
-    padding: 1rem 3rem;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    border: none;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    position: relative;
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin-top: 2rem;
-}
-
-    
-  /* Efecto hover sobre el botón */
 .especialidades-section .btn::before {
     content: "";
     position: absolute;
@@ -1102,10 +914,8 @@
     width: 300%;
     height: 300%;
 }
-    
-  
-  
-  /* Media Query para pantallas pequeñas */
+
+/* Media Query para pantallas pequeñas */
 @media (max-width: 768px) {
     .horarios-section {
         padding: 4rem 2rem; /* Ajuste del espaciado en pantallas pequeñas */
@@ -1290,12 +1100,13 @@ footer address {
         
         
         
-    
+        
+        
+        
         
     </style>
 </head>
 <body>
-
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
@@ -1307,7 +1118,7 @@ footer address {
             <div class="collapse navbar-collapse" id="navMenu">
                <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link fw-semibold" href="login">login</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#especialidades">Especialidades Medicas</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="#especialidades">Especialidades</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold" href="#servicios">Servicios Médicos</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold" href="#horarios">Horarios</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold" href="#citas">Citas Médicas</a></li>
@@ -1316,53 +1127,26 @@ footer address {
           <ul class="dropdown-menu dropdown-menu-dark shadow-lg">
     
    
-            <li><h6 class="dropdown-header">Usuario Administrador</h6></li>
-   
-            <!-- listo -->
-            <li><a class="dropdown-item" href="/usuarios/nuevo">Registro de Nuevo Usuario</a></li>
-            
-            
-            
-               <li><a class="dropdown-item" href="/roles/nuevo">Registrar Nuevo Rol</a></li>
-               
-               
-                         <li><a class="dropdown-item" href= "/usuariosRoles/nuevo">Registrar Roles a Usuarios</a></li>
-            
-      
+                <li><h6 class="dropdown-header">Usuario Médico</h6></li>
        
        
-<!-- listo -->
-            <li><a class="dropdown-item" href="/errores/todos">Errores reportados por pacientes</a></li>
-            
-                        
-                        
-                        
-                      <li><a class="dropdown-item" href="/reporte/todos">Errores reportados por Medicos</a></li>
-            
-            
-            
-      
+       <!-- listo -->
        
-             
-            <li><a class="dropdown-item" href="/citas/todas">Citas Solicitadas</a></li>
-            
-            
-            <li><a class="dropdown-item" href="/medico/todos">Medicos Disponibles</a></li>
-           
-              
-              
-              
-              
-            <li><a class="dropdown-item" href="/tramites/nuevo" >Generación Orden Consulta</a></li>
-            
-                    <li><a class="dropdown-item" href="/tramites/todos" >Citas Asignadas</a></li>
-                    
-                </ul>
-            </div>
-        </div>
-    </nav>
+       
+       <li><a class="dropdown-item" href="/medico/nuevo" >Registrar Disponibilidad</a></li>
+              <li><a class="dropdown-item" href="/reporte/nuevo" >Enviar Reporte Medico</a></li>
+       
 
- 
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  
     <!-- Sección Bienvenida -->
     <section class="citas-welcome-section container my-5">
         <div class="card citas-card shadow-lg p-4">
@@ -1500,8 +1284,8 @@ footer address {
                 <div class="col-md-4">
                     <h6 class="footer-subtitle">Contacto</h6>
                     <ul class="list-unstyled">
-                        <li>Teléfono: <a href="tel:+1234567890">+51 999 999 222 </a></li>
-                        <li>Email: <a href="mailto:info@CentroMedico.com">CentroMedico@gmail.com</a></li>
+                        <li>Teléfono: <a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li>Email: <a href="mailto:info@CentroMedico.com">info@CentroMedico.com</a></li>
                         <li>Horario: Lun - Vie, 8:00 AM - 6:00 PM</li>
                     </ul>
                 </div>
