@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Médico N & A S.A.C</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+       
+       
+       /* Navbar */
+.navbar {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 224, 255, 0.6));
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Logo */
+.navbar .navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00e0ff;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(0, 224, 255, 0.9), 0 0 20px rgba(0, 224, 255, 0.7);
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Hover sobre el logo */
+.navbar .navbar-brand:hover {
+    color: #00bcd4;
+    text-shadow: 0 0 18px rgba(0, 224, 255, 1), 0 0 30px rgba(0, 224, 255, 0.9);
+}
+
+/* Estilos del menú */
+.navbar-nav .nav-item .nav-link {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: #f0f0f0;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link.active {
+    color: #00e0ff;
+    background: rgba(0, 224, 255, 0.2);
+    text-shadow: 0 0 8px rgba(0, 224, 255, 0.7);
+    transform: scale(1.05);
+}
+
+/* Estilos para el botón del menú desplegable */
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+    color: #00e0ff;
+}
+
+/* Íconos del toggle */
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3e%3cpath stroke="%2300e0ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h22M4 12h22M4 18h22"%3e%3c/path%3e%3c/svg%3e');
+}
+
+/* Estilos para los elementos del menú cuando está abierto */
+.navbar-collapse {
+    transition: max-height 0.3s ease;
+    z-index: 10;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+       
+       
+
+       /* Carrusel */
+#heroCarousel {
+    height: 500px;
+    background-color: #001f4d; /* Fondo oscuro */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+/* Carrusel de elementos */
+.carousel-item {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    position: relative;
+    transition: transform 0.7s ease;
+}
+
+/* Efecto hover para el carrusel */
+.carousel-item:hover {
+    transform: scale(1.05); /* Agrandar ligeramente la imagen */
+}
+
+/* Texto de la leyenda del carrusel */
+.carousel-caption {
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+    text-shadow: 0 0 20px rgba(0, 114, 255, 0.7), 0 0 25px rgba(0, 114, 255, 0.9);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Subtítulo del carrusel */
+.carousel-caption h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(0, 114, 255, 1);
+}
+
+/* Descripción del carrusel */
+.carousel-caption p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+}
+
+/* Botón personalizado en el carrusel */
+.btn-primary-custom {
+    background: linear-gradient(45deg, #00d4ff, #005eff);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 224, 255, 0.5);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover sobre el botón */
+.btn-primary-custom:hover {
+    background: linear-gradient(45deg, #00a8d4, #003a5c);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 224, 255, 0.6);
+}
+
+/* Estilo de los controles del carrusel (flechas) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #00e0ff;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 224, 255, 0.5);
+}
+
+/* Hover en los controles */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: #00bcd4;
+    transform: scale(1.1);
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    #heroCarousel {
+        height: 350px; /* Ajustamos la altura del carrusel en pantallas pequeñas */
+    }
+
+    .carousel-caption h3 {
+        font-size: 1.8rem; /* Reducir tamaño de los títulos */
+    }
+
+    .carousel-caption p {
+        font-size: 1rem; /* Reducir tamaño del texto */
+    }
+
+    .btn-primary-custom {
+        padding: 10px 25px; /* Ajustar padding del botón */
+        font-size: 1rem; /* Reducir tamaño de fuente */
+    }
+}
+
+      
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     /* Sección Bienvenida */
+.citas-welcome-section {
+    background: radial-gradient(circle, rgba(34, 34, 34, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%); /* Fondo oscuro con gradiente radial */
+    padding: 6rem 2rem; /* Espaciado ajustado */
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.3); /* Sombra oscura y profunda */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.citas-welcome-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/tech-hexagons.png') repeat;
+    opacity: 0.2; /* Fondo de textura sutil */
+    z-index: -1;
+}
+
+/* Tarjeta de bienvenida */
+.citas-card {
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para la tarjeta */
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Sombra de profundidad */
+}
+
+.citas-card:hover {
+    transform: translateY(-10px); /* Elevación marcada */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); /* Aumento de sombra al hover */
+}
+
+/* Icono de Corazón Pulsante */
+.citas-card .bi-heart-pulse-fill {
+    font-size: 5rem; /* Icono grande */
+    color: #00e0ff; /* Color neón cian */
+    animation: pulse 1.2s infinite ease-in-out; /* Animación de pulso */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
+
+/* Estilos del título */
+.citas-card h2 {
+    font-family: 'Orbitron', sans-serif; /* Fuente futurista y tecnológica */
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #00e0ff; /* Azul eléctrico */
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 224, 255, 0.8), 0 0 20px rgba(0, 224, 255, 0.6); /* Efecto de resplandor de neón */
+}
+
+/* Estilos del párrafo */
+.citas-card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #d0d0d0; /* Gris suave */
+    margin-bottom: 2rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Sutil resplandor en el texto */
+}
+
+/* Estilo del botón */
+.citas-card .btn-glow {
+    background-color: #00e0ff; /* Cian neón */
+    color: #000;
+    padding: 1rem 2.5rem;
+    border-radius: 50px; /* Borde redondeado */
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid #00e0ff;
+    outline: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Hover sobre el botón */
+.citas-card .btn-glow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 224, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.citas-card .btn-glow:hover {
+    background-color: #00bcd4; /* Cambiar a un tono más oscuro de cian */
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+.citas-card .btn-glow:hover::before {
+    width: 300%;
+    height: 300%; /* Expansión del brillo al hacer hover */
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .citas-welcome-section {
+        padding: 4rem 2rem; /* Ajuste de padding en dispositivos pequeños */
+    }
+
+    .citas-card h2 {
+        font-size: 1.8rem; /* Título más pequeño en móviles */
+    }
+
+    .citas-card p {
+        font-size: 1rem; /* Tamaño de párrafo reducido en móviles */
+    }
+
+    .citas-card .btn-glow {
+        width: 100%; /* El botón ocupa todo el ancho en móviles */
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Sección Especialidades */
+.especialidades-section {
+    background: radial-gradient(circle, rgba(34, 34, 34, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
+    padding: 6rem 2rem;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.especialidades-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/tech-hexagons.png') repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Título de Especialidades */
+.especialidades-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: #00e0ff;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px rgba(0, 224, 255, 0.8), 0 0 25px rgba(0, 224, 255, 0.6);
+}
+
+/* Estilo del párrafo */
+.especialidades-section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Cards de Especialidades */
+.especialidad-card {
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.especialidad-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Icono en las Cards */
+.icon-box {
+    font-size: 4rem;
+    color: #00e0ff;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.icon-box:hover {
+    color: #ff4081; /* Cambio de color al hover */
+}
+
+.icon-box.glowing-icon {
+    animation: glow 1.5s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 224, 255, 0.8), 0 0 15px rgba(0, 224, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(0, 224, 255, 1), 0 0 30px rgba(0, 224, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(0, 224, 255, 0.8), 0 0 15px rgba(0, 224, 255, 0.5);
+    }
+}
+
+/* Títulos de las especialidades */
+.especialidad-card h5 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
+}
+
+/* Descripción en las Cards */
+.especialidad-card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Botón de ver todas las especialidades */
+.especialidades-section .btn {
+    background-color: #00e0ff;
+    color: #000;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+/* Efecto hover sobre el botón */
+.especialidades-section .btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 224, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.especialidades-section .btn:hover {
+    background-color: #00bcd4;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+.especialidades-section .btn:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .especialidades-section {
+        padding: 4rem 2rem; /* Ajuste del espaciado en pantallas pequeñas */
+    }
+
+    .especialidades-title {
+        font-size: 2.2rem; /* Tamaño más pequeño para el título */
+    }
+
+    .especialidades-section p {
+        font-size: 1.1rem; /* Tamaño más pequeño del párrafo */
+    }
+
+    .especialidad-card {
+        padding: 1.5rem; /* Espaciado más pequeño en las cards */
+    }
+
+    .especialidad-card h5 {
+        font-size: 1.1rem; /* Título más pequeño */
+    }
+
+    .especialidad-card p {
+        font-size: 0.9rem; /* Descripción más pequeña */
+    }
+
+    .especialidades-section .btn {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      /* Sección Servicios Médicos */
+.servicios-section {
+    background: radial-gradient(circle, rgba(34, 34, 34, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
+    padding: 6rem 2rem;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.servicios-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/tech-hexagons.png') repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Título de Servicios Médicos */
+.servicios-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: #00e0ff;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px rgba(0, 224, 255, 0.8), 0 0 25px rgba(0, 224, 255, 0.6);
+}
+
+/* Estilo del párrafo */
+.servicios-section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Cards de Servicios Médicos */
+.servicio-card {
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.servicio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Icono en las Cards */
+.icon-box {
+    font-size: 4rem;
+    color: #00e0ff;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.icon-box:hover {
+    color: #ff4081; /* Cambio de color al hover */
+}
+
+.icon-box.glowing-icon {
+    animation: glow 1.5s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 224, 255, 0.8), 0 0 15px rgba(0, 224, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(0, 224, 255, 1), 0 0 30px rgba(0, 224, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(0, 224, 255, 0.8), 0 0 15px rgba(0, 224, 255, 0.5);
+    }
+}
+
+/* Títulos de los servicios */
+.servicio-card h5 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
+}
+
+/* Descripción en las Cards */
+.servicio-card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Botón de ver todos los servicios */
+.servicios-section .btn {
+    background-color: #00e0ff;
+    color: #000;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+/* Efecto hover sobre el botón */
+.servicios-section .btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 224, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.servicios-section .btn:hover {
+    background-color: #00bcd4;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+.servicios-section .btn:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .servicios-section {
+        padding: 4rem 2rem; /* Ajuste del espaciado en pantallas pequeñas */
+    }
+
+    .servicios-title {
+        font-size: 2.2rem; /* Tamaño más pequeño para el título */
+    }
+
+    .servicios-section p {
+        font-size: 1.1rem; /* Tamaño más pequeño del párrafo */
+    }
+
+    .servicio-card {
+        padding: 1.5rem; /* Espaciado más pequeño en las cards */
+    }
+
+    .servicio-card h5 {
+        font-size: 1.1rem; /* Título más pequeño */
+    }
+
+    .servicio-card p {
+        font-size: 0.9rem; /* Descripción más pequeña */
+    }
+
+    .servicios-section .btn {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+      
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Sección Horarios */
+.horarios-section {
+    background: radial-gradient(circle, rgba(34, 34, 34, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
+    padding: 6rem 2rem;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.horarios-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/tech-hexagons.png') repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Título de Horarios */
+.horarios-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: #00e0ff;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px rgba(0, 224, 255, 0.8), 0 0 25px rgba(0, 224, 255, 0.6);
+}
+
+/* Estilo del párrafo */
+.horarios-section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Estilos de la tabla */
+.table {
+    width: 100%;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #00e0ff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 224, 255, 0.1);
+}
+
+.table th, .table td {
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+.table th {
+    font-size: 1.2rem;
+    background-color: rgba(0, 224, 255, 0.3);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 224, 255, 0.2);
+}
+
+.table td {
+    color: #e0e0e0;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    border-top: 1px solid #00e0ff;
+}
+
+.table td:hover {
+    background-color: rgba(0, 224, 255, 0.1);
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 224, 255, 0.3);
+}
+
+/* Estilo para la tabla responsive */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 3rem;
+    padding: 1rem;
+}
+
+/* Efecto hover sobre la tabla */
+.table tbody tr:hover {
+    background-color: rgba(0, 224, 255, 0.2);
+}
+
+/* Botón de acción */
+.horarios-section .btn {
+    background-color: #00e0ff;
+    color: #000;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+/* Efecto hover sobre el botón */
+.horarios-section .btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 224, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.horarios-section .btn:hover {
+    background-color: #00bcd4;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+.horarios-section .btn:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .horarios-section {
+        padding: 4rem 2rem; /* Ajuste del espaciado en pantallas pequeñas */
+    }
+
+    .horarios-title {
+        font-size: 2.2rem; /* Tamaño más pequeño para el título */
+    }
+
+    .horarios-section p {
+        font-size: 1.1rem; /* Tamaño más pequeño del párrafo */
+    }
+
+    .table th, .table td {
+        font-size: 0.9rem; /* Tamaño de fuente más pequeño para la tabla */
+    }
+
+    .table td {
+        padding: 0.8rem; /* Menos espacio dentro de las celdas */
+    }
+
+    .horarios-section .btn {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Sección Footer */
+.footer-section {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 224, 255, 0.3));
+    color: #fff;
+    padding: 6rem 2rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.footer-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/tech-hexagons.png') repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Título de la sección footer */
+.footer-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #00e0ff;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(0, 224, 255, 0.8), 0 0 20px rgba(0, 224, 255, 0.6);
+}
+
+/* Subtítulos */
+.footer-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Estilos de los enlaces en el footer */
+.footer-section a {
+    color: #00e0ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+    color: #00bcd4;
+    text-shadow: 0 0 12px rgba(0, 224, 255, 0.5);
+}
+
+/* Estilos de las listas */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d0d0d0;
+    margin-bottom: 0.8rem;
+}
+
+/* Estilos del address */
+footer address {
+    font-style: normal;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d0d0d0;
+    margin-top: 0.8rem;
+}
+
+/* Divider line */
+.footer-section hr {
+    border: none;
+    height: 2px;
+    background: #00e0ff;
+    opacity: 0.5;
+    margin: 3rem 0;
+}
+
+/* Text-center small */
+.footer-section .text-center small {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #d0d0d0;
+    letter-spacing: 0.5px;
+}
+
+/* Efecto hover para el texto en el footer */
+.footer-section .text-center small:hover {
+    color: #00bcd4;
+    text-decoration: underline;
+}
+
+/* Media Queries para dispositivos pequeños */
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 4rem 2rem; /* Ajustar el padding en pantallas pequeñas */
+    }
+
+    .footer-title {
+        font-size: 2rem; /* Tamaño más pequeño del título */
+    }
+
+    .footer-subtitle {
+        font-size: 1.1rem; /* Tamaño más pequeño para los subtítulos */
+    }
+
+    .footer-section ul li {
+        font-size: 1rem; /* Reducir el tamaño de la fuente de la lista */
+    }
+}
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        
+        
+        
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand" href="#">CENTRO MÉDICO N & A S.A.C</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+               <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link fw-semibold" href="login">login</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="#especialidades">Especialidades</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="#servicios">Servicios Médicos</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="#horarios">Horarios</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="#citas">Citas Médicas</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Módulos</a>
+          <ul class="dropdown-menu dropdown-menu-dark shadow-lg">
+    
+   
+     <li><h6 class="dropdown-header">Usuario Paciente</h6></li>
+
+<li><a class="dropdown-item" href="/errores/nuevo">Notificación de Errores</a>
+<li><a class="dropdown-item" href="/citas/nueva">Solicitud de Cita Medica</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <!-- Sección Bienvenida -->
+    <section class="citas-welcome-section container my-5">
+        <div class="card citas-card shadow-lg p-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0 text-center">
+                    <i class="bi bi-heart-pulse-fill glowing-icon"></i>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="text-gradient mb-3">Bienvenido al Centro Médico N & A S.A.C</h2>
+                    <p class="lead">En nuestra clínica, tu salud y bienestar son nuestra prioridad. Contamos con un equipo profesional y comprometido, instalaciones modernas y una atención centrada en el paciente.</p>
+                    <a href="#especialidades" class="btn btn-glow mt-3">Ver Especialidades</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialidades -->
+    <section id="especialidades" class="especialidades-section container my-5 text-center">
+        <h2 class="especialidades-title text-gradient-glow">Especialidades Médicas</h2>
+        <p class="lead">Explora nuestras áreas especializadas para un mejor cuidado de tu salud.</p>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4 col-lg-3">
+                <div class="card especialidad-card text-center">
+                    <div class="icon-box glowing-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+                    <h5>Cardiología</h5>
+                    <p>Diagnóstico y tratamiento avanzado para tu salud cardiovascular.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card especialidad-card text-center">
+                    <div class="icon-box glowing-icon"><i class="bi bi-bandaid-fill"></i></div>
+                    <h5>Neurología</h5>
+                    <p>Atención especializada en enfermedades y trastornos neurológicos.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card especialidad-card text-center">
+                    <div class="icon-box glowing-icon"><i class="bi bi-bandaid-fill"></i></div>
+                    <h5>Traumatología</h5>
+                    <p>Tratamiento integral para lesiones musculoesqueléticas.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card especialidad-card text-center">
+                    <div class="icon-box glowing-icon"><i class="bi bi-eyeglasses"></i></div>
+                    <h5>Oftalmología</h5>
+                    <p>Cuida tu visión con nuestros especialistas de confianza.</p>
+                </div>
+            </div>
+        </div>
+        <a href="/Especialidades.html" class="btn btn-lg btn-primary shadow-sm">
+            <i class="bi bi-journal-medical"></i> Ver todas las especialidades
+        </a>
+    </section>
+
+    <!-- Servicios Médicos -->
+    <section id="servicios" class="servicios-section py-5">
+        <div class="container text-center">
+            <h2 class="servicios-title text-gradient-glow">Servicios Médicos</h2>
+            <p class="lead">Ofrecemos servicios integrales adaptados a tus necesidades.</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 col-lg-3">
+                    <div class="card servicio-card text-center">
+                        <div class="icon-box glowing-icon"><i class="bi bi-hospital"></i></div>
+                        <h5>Consultas Médicas</h5>
+                        <p>Atención general y especializada para todas las edades.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card servicio-card text-center">
+                        <div class="icon-box glowing-icon"><i class="bi bi-droplet-half"></i></div>
+                        <h5>Laboratorio Clínico</h5>
+                        <p>Análisis y pruebas diagnósticas con tecnología avanzada.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card servicio-card text-center">
+                        <div class="icon-box glowing-icon"><i class="bi bi-hospital"></i></div>
+                        <h5>Radiología</h5>
+                        <p>Estudios por imágenes con equipos modernos y seguros.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card servicio-card text-center">
+                        <div class="icon-box glowing-icon"><i class="bi bi-hospital"></i></div>
+                        <h5>Hospitalización</h5>
+                        <p>Cuidado y recuperación con atención personalizada.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="/serviciosmedicos.html" class="btn btn-lg btn-primary shadow-sm">
+                <i class="bi bi-journal-medical"></i> Ver todos los Servicios Médicos
+            </a>
+        </div>
+    </section>
+
+    <!-- Horarios -->
+    <section id="horarios" class="horarios-section container my-5 text-center">
+        <h2 class="horarios-title text-gradient-glow">Horarios de Atención</h2>
+        <p class="lead">Consulta nuestros horarios para planificar tu visita sin contratiempos.</p>
+        <div class="row justify-content-center g-4">
+            <div class="col-md-8">
+                <div class="table-responsive shadow rounded">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Día</th>
+                                <th>Horario Mañana</th>
+                                <th>Horario Tarde</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Lunes</td><td>8:00 - 13:00</td><td>14:00 - 18:00</td></tr>
+                            <tr><td>Martes</td><td>8:00 - 13:00</td><td>14:00 - 18:00</td></tr>
+                            <tr><td>Miércoles</td><td>8:00 - 13:00</td><td>14:00 - 18:00</td></tr>
+                            <tr><td>Jueves</td><td>8:00 - 13:00</td><td>14:00 - 18:00</td></tr>
+                            <tr><td>Viernes</td><td>8:00 - 13:00</td><td>14:00 - 16:00</td></tr>
+                            <tr><td>Sábado</td><td>9:00 - 12:00</td><td>-</td></tr>
+                            <tr><td>Domingo</td><td colspan="2">Cerrado</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section text-light py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h5 class="footer-title">CENTRO MÉDICO N & A S.A.C</h5>
+                    <p>Cuidando tu salud con compromiso y excelencia.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="footer-subtitle">Contacto</h6>
+                    <ul class="list-unstyled">
+                        <li>Teléfono: <a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li>Email: <a href="mailto:info@CentroMedico.com">info@CentroMedico.com</a></li>
+                        <li>Horario: Lun - Vie, 8:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="footer-subtitle">Ubicación</h6>
+                    <address>
+                        Calle Salud 123<br>
+                        Ciudad Bienestar, Estado Ejemplo<br>
+                        Código Postal 45678<br>
+                        País Saludable
+                    </address>
+                </div>
+            </div>
+            <hr />
+            <div class="text-center">
+                <small>&copy; 2025 CENTRO MÉDICO N & A S.A.C. Todos los derechos reservados.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
