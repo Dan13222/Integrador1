@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Edición de Cita Médica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.1)),
+                    url('https://www.transparenttextures.com/patterns/45-degree-fabric-light.png');
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    form {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 2rem 3rem;
+        border-radius: 12px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 700px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+        overflow-y: auto;
+        max-height: 90vh;
+    }
+
+    form:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        position: relative;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    h1::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: #3498db;
+        margin: 0.5rem auto 0;
+        border-radius: 4px;
+    }
+
+    @keyframes glow {
+        0% { text-shadow: 0 0 5px #3498db, 0 0 10px #3498db, 0 0 15px #3498db; }
+        100% { text-shadow: 0 0 15px #3498db, 0 0 30px #3498db, 0 0 45px #3498db; }
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-weight: 700;
+        color: #34495e;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 1.5rem;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        background: #f9f9f9;
+    }
+
+    input:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 10px rgba(52, 152, 219, 0.6);
+        outline: none;
+        background: #fff;
+    }
+
+    input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="date"]:focus {
+        animation: glowInput 0.5s ease-in-out;
+    }
+
+    @keyframes glowInput {
+        0% { box-shadow: 0 0 8px rgba(52, 152, 219, 0.4); }
+        100% { box-shadow: 0 0 10px rgba(52, 152, 219, 0.8); }
+    }
+
+    button, input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(90deg, #3498db, #2980b9);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+    }
+
+    button:hover, input[type="submit"]:hover {
+        background: linear-gradient(90deg, #2980b9, #1f618d);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(52, 152, 219, 0.6);
+    }
+
+    button:active, input[type="submit"]:active {
+        transform: scale(1);
+    }
+
+    .form-control::placeholder {
+        color: #7f8c8d;
+        font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <form action="/citas/actualizar" method="post">
+    <h1>Editar Cita Médica</h1>
+
+    <label>ID:</label>
+    <input type="text" name="id" th:value="${cita.id}" readonly="readonly">
+
+    <label>Nombre:</label>
+    <input type="text" name="nombre" th:value="${cita.nombre}">
+
+    <label>Apellido:</label>
+    <input type="text" name="apellido" th:value="${cita.apellido}">
+
+    <label>Fecha inicio síntomas:</label>
+    <input type="text" name="fechaInicioSintomas" th:value="${cita.fechaInicioSintomas}">
+
+    <label>Descripción síntomas:</label>
+    <input type="text" name="descripcionSintomas" th:value="${cita.descripcionSintomas}">
+
+    <label>DNI:</label>
+    <input type="text" name="dni" th:value="${cita.dni}">
+
+    <label>Discapacidad:</label>
+    <input type="text" name="discapacidad" th:value="${cita.discapacidad}">
+
+    <label>Condiciones crónicas:</label>
+    <input type="text" name="condicionesCronicas" th:value="${cita.condicionesCronicas}">
+
+    <label>Otra información:</label>
+    <input type="text" name="otraInformacion" th:value="${cita.otraInformacion}">
+
+    <label>Teléfono personal:</label>
+    <input type="text" name="telefonoPersonal" th:value="${cita.telefonoPersonal}">
+
+    <label>Correo electrónico:</label>
+    <input type="text" name="correoElectronico" th:value="${cita.correoElectronico}">
+
+    <label>Antecedentes:</label>
+    <input type="text" name="antecedentes" th:value="${cita.antecedentes}">
+
+    <label>Teléfono contacto:</label>
+    <input type="text" name="telefonoContacto" th:value="${cita.telefonoContacto}">
+
+    <input type="submit" value="Actualizar">
+  </form>
+</body>
+</html>
