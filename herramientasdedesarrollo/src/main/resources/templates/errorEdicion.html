@@ -1,10 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <title>Insert title</title>
+=======
+  <meta charset="UTF-8">
+  <title>Edición de reporte</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 2rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      max-width: 700px;
+      width: 100%;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .form-label {
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #2c3e50;
+    }
+
+    .form-control:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #3498db, #2980b9);
+      border: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #2980b9, #1f618d);
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(52, 152, 219, 0.4);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+>>>>>>> branch 'main' of https://github.com/Dan13222/Integrador1.git
 </head>
 <body>
+
+  <div class="form-container">
+    <h3 class="mb-4 text-center">Editar Reporte de Error</h3>
+    <form action="/errores/actualizar" method="post">
+      <div class="mb-3">
+        <label class="form-label">ID</label>
+        <input type="text" name="id" class="form-control" th:value="${reporte.id}" readonly>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Nombre Paciente</label>
+        <input type="text" name="nombrePaciente" class="form-control" th:value="${reporte.nombrePaciente}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Correo Electrónico</label>
+        <input type="text" name="correoElectronico" class="form-control" th:value="${reporte.correoElectronico}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Error del Sistema</label>
+        <input type="text" name="errorSistema" class="form-control" th:value="${reporte.errorSistema}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Información Adicional</label>
+        <textarea name="infoAdicional" class="form-control" rows="4" th:text="${reporte.infoAdicional}"></textarea>
+      </div>
+
+      <div class="d-grid">
+        <input type="submit" value="Actualizar" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
 
 </body>
 </html>
