@@ -1,10 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta charset="UTF-8">
+  <title>Página de Inicio de Sesión</title>
+  <style>
+    /* Fondo animado dinámico */
+    body {
+      background: linear-gradient(-45deg, #00ffff, #004466, #00c2cb, #006677);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 2rem;
+      margin: 0;
+      color: #ccfaff;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: cyan;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 12px cyan;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .login-container {
+      background: rgba(0, 30, 40, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      max-width: 400px;
+      margin: 0 auto;
+      border: 2px solid cyan;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 6px;
+      background-color: rgba(0, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 1rem;
+      box-shadow: inset 0 0 6px rgba(0, 255, 255, 0.3);
+    }
+
+    input[type="text"]::placeholder,
+    input[type="password"]::placeholder {
+      color: #99ddee;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background: linear-gradient(to right, #00ffff, #00bcd4);
+      color: #003344;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      margin-top: 1rem;
+      box-shadow: 0 0 12px cyan;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px 6px #00ffff;
+    }
+
+    .alert {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #ffaaaa;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+  <h2>Inicio de Sesión</h2>
+  <div class="login-container">
+    <h1>Por favor inicia sesión</h1>
 
+    <div th:if="${param.error}" class="alert">
+      Usuario o contraseña incorrectos.
+    </div>
+    <div th:if="${param.logout}" class="alert">
+      Has cerrado sesión correctamente.
+    </div>
+
+    <form th:action="@{/login}" method="post">
+      <div>
+        <input type="text" name="username" placeholder="Nombre de usuario" required />
+      </div>
+      <div>
+        <input type="password" name="password" placeholder="Contraseña" required />
+      </div>
+      <input type="submit" value="Iniciar sesión" />
+    </form>
+  </div>
 </body>
 </html>
