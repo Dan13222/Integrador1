@@ -1,10 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Insert title herCCCCe</title>
+  <meta charset="UTF-8">
+  <title>Nuevo Reporte de Error</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 2.2rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      max-width: 700px;
+      width: 100%;
+      animation: slideIn 0.8s ease;
+    }
+
+    .form-label {
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #2c3e50;
+    }
+
+    .form-control:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #3498db, #2980b9);
+      border: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #2980b9, #1f618d);
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(52, 152, 219, 0.4);
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
+
+  <div class="form-container">
+    <h3 class="mb-4 text-center">Nuevo Reporte de Error</h3>
+    <form action="/reporte/insertar" method="post">
+      <div class="mb-3">
+        <label class="form-label">Nombre Médico</label>
+        <input type="text" name="nombreMedico" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Correo Electrónico</label>
+        <input type="text" name="correoElectronico" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Falla por parte de la Clínica</label>
+        <input type="text" name="fallaClinica" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Error en el Sistema</label>
+        <input type="text" name="errorSistema" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Falta de Implementación Médica</label>
+        <input type="text" name="faltaImplementacionMedica" class="form-control">
+      </div>
+
+      <div class="d-grid">
+        <input type="submit" value="Enviar" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
 
 </body>
 </html>
