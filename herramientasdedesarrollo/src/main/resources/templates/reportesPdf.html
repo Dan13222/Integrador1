@@ -1,10 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="UTF-8"/>
+<title>Reporte Médico</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 14px;
+    margin: 30px;
+    background: #f5f7fb;
+    color: #222;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #4a148c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    font-size: 16px;
+    margin: 16px 0 8px;
+    color: #333;
+  }
+
+  .box {
+    background: #fff;
+    border-left: 4px solid #6a1b9a;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.08);
+  }
+
+  .label {
+    font-weight: bold;
+    color: #4a148c;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .mono {
+    font-family: "Fira Code", "Consolas", monospace;
+    white-space: pre-wrap;
+    color: #333;
+  }
+
+  .footer {
+    margin-top: 30px;
+    padding-top: 12px;
+    border-top: 2px dashed #ccc;
+    font-size: 13px;
+    color: #555;
+  }
+
+  /* efecto sutil hacker/tech */
+  .mono::before {
+    content: "> ";
+    color: #6a1b9a;
+    font-weight: bold;
+  }
+</style>
 </head>
 <body>
+  <div class="header">
+    <h1>🧾 REPORTE MÉDICO</h1>
+    <div class="label">Institución / Médico:</div>
+    <div class="mono" th:text="${rep.institucion}">N/A</div>
+  </div>
 
+  <div class="box">
+    <div class="label">Datos del paciente</div>
+    <div class="mono" th:text="${rep.datosPaciente}">N/A</div>
+  </div>
+
+  <div class="box">
+    <span class="label">Fecha y lugar:</span>
+    <span class="mono" th:text="${rep.fechaLugar}">N/A</span>
+  </div>
+
+  <div class="box">
+    <div class="label">Motivo de la consulta</div>
+    <div class="mono" th:text="${rep.motivoConsulta}">N/A</div>
+  </div>
+
+  <div class="box">
+    <div class="label">Antecedentes médicos relevantes</div>
+    <div class="mono" th:text="${rep.antecedentes}">N/A</div>
+  </div>
+
+  <div class="box">
+    <div class="label">Examen físico (signos vitales, hallazgos)</div>
+    <div class="mono" th:text="${rep.examenFisico}">N/A</div>
+  </div>
+
+  <div class="box">
+    <div class="label">Exámenes auxiliares</div>
+    <div class="mono" th:text="${rep.examenesAuxiliares}">N/A</div>
+  </div>
+
+  <div class="box">
+    <div class="label">Diagnóstico</div>
+    <div class="mono" th:text="${rep.diagnostico}">N/A</div>
+  </div>
+
+  <div class="box">
+    <div class="label">Tratamiento indicado</div>
+    <div class="mono" th:text="${rep.tratamiento}">N/A</div>
+  </div>
+
+  <div class="box">
+    <div class="label">Evolución</div>
+    <div class="mono" th:text="${rep.evolucion}">N/A</div>
+  </div>
+
+  <div class="box">
+    <div class="label">Recomendaciones médicas</div>
+    <div class="mono" th:text="${rep.recomendaciones}">N/A</div>
+  </div>
+
+  <div class="box">
+    <div class="label">Conclusión</div>
+    <div class="mono" th:text="${rep.conclusion}">N/A</div>
+  </div>
+
+  <div class="footer">
+    <div class="label">Firma / Sello / N° Colegiatura:</div>
+    <div class="mono" th:text="${rep.firmaMedico}">N/A</div>
+  </div>
 </body>
 </html>
