@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuevo Rol</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #ecf0f3, #d0e2f2);
+      padding: 2rem;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      font-weight: bold;
+      color: #2c3e50;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+      border-color: #3498db;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.7rem;
+      font-weight: bold;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #3498db, #2980b9);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #2980b9, #2471a3);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(90deg, #95a5a6, #7f8c8d);
+      margin-top: 1rem;
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(90deg, #7f8c8d, #616a6b);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Registrar Nuevo Rol</h1>
+
+    <form action="/roles/insertar" method="post">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <input type="submit" value="Insertar" class="btn-primary">
+    </form>
+
+    <!-- Botón para volver al menú de administrador -->
+    <form th:action="@{/MenuAdmin.html}" method="get">
+      <button type="submit" class="btn-secondary">Volver al menú</button>
+    </form>
+  </div>
+</body>
+</html>
