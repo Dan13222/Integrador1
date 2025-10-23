@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Roles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #ecf0f3, #d0e2f2);
+      padding: 2rem;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+    }
+
+    a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      color: #2980b9;
+      font-weight: bold;
+    }
+
+    #busqueda {
+      margin-bottom: 1.5rem;
+      padding: 0.6rem;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e2efff;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(90deg, #3498db, #2980b9);
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(90deg, #2980b9, #2471a3);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(90deg, #95a5a6, #7f8c8d);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      display: block;
+      margin: 2rem auto 0 auto;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(90deg, #7f8c8d, #616a6b);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Listado de Roles</h1>
+
+    <a href="/roles/nuevo">➕ Registrar nuevo rol</a>
+
+    <!-- 🔍 Barra de búsqueda -->
+    <input type="text" id="busqueda" placeholder="Buscar por nombre..." onkeyup="filtrarTabla()">
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="rol : ${listaRoles}">
+          <td th:text="${rol.id}"></td>
+          <td th:text="${rol.nombre}"></td>
+          <td>
+            <form action="/roles/edicion" method="get">
+              <input type="hidden" name="id" th:value="${rol.id}">
+              <input type="submit" value="Editar">
+            </form>
+          </td>
+          <td>
+            <form action="/roles/eliminar" method="post">
+              <input type="hidden" name="id" th:value="${rol.id}">
+              <input type="submit" value="Eliminar">
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Botón para volver al menú de administrador -->
+    <form th:action="@{/MenuAdmin.html}" method="get">
+      <button type="submit" class="btn-secondary">Volver al menú</button>
+    </form>
+  </div>
+
+  <!-- 🧠 Script para búsqueda por nombre -->
+  <script>
+    function filtrarTabla() {
+      let input = document.getElementById("busqueda");
+      let filtro = input.value.toLowerCase();
+      let filas = document.querySelectorAll("tbody tr");
+
+      filas.forEach(fila => {
+        let nombre = fila.cells[1].textContent.toLowerCase(); // Columna "Nombre"
+        fila.style.display = nombre.includes(filtro) ? "" : "none";
+      });
+    }
+  </script>
+</body>
+</html>
