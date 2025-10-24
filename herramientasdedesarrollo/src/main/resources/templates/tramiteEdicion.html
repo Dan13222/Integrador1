@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Edición de trámite</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #ecf0f3, #d0e2f2);
+      padding: 2rem;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+      border-color: #3498db;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #3498db, #2980b9);
+      border: none;
+      font-weight: bold;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #2980b9, #2471a3);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Edición de Trámite</h2>
+
+    <form action="/tramites/actualizar" method="post" class="row g-3">
+
+      <div class="col-md-6">
+        <label>ID</label>
+        <input type="text" name="id" th:value="${tramite.id}" class="form-control" readonly>
+      </div>
+
+      <div class="col-md-6">
+        <label>Nombre Atendido</label>
+        <input type="text" name="nombreAtendido" th:value="${tramite.nombreAtendido}" class="form-control">
+      </div>
+
+      <div class="col-md-6">
+        <label>Apellido Atendido</label>
+        <input type="text" name="apellidoAtendido" th:value="${tramite.apellidoAtendido}" class="form-control">
+      </div>
+
+      <div class="col-md-6">
+        <label>DNI Atendido</label>
+        <input type="text" name="dniAtendido" th:value="${tramite.dniAtendido}" class="form-control">
+      </div>
+
+      <div class="col-md-6">
+        <label>Teléfono Atendido</label>
+        <input type="text" name="telefonoAtendido" th:value="${tramite.telefonoAtendido}" class="form-control">
+      </div>
+
+      <div class="col-md-6">
+        <label>Nombre Doctor</label>
+        <input type="text" name="nombreDoctor" th:value="${tramite.nombreDoctor}" class="form-control">
+      </div>
+
+      <div class="col-md-6">
+        <label>Apellido Doctor</label>
+        <input type="text" name="apellidoDoctor" th:value="${tramite.apellidoDoctor}" class="form-control">
+      </div>
+
+      <div class="col-md-6">
+        <label>Especialidad Doctor</label>
+        <input type="text" name="especialidadDoctor" th:value="${tramite.especialidadDoctor}" class="form-control">
+      </div>
+
+      <div class="col-md-6">
+        <label>Consultorio Doctor</label>
+        <input type="text" name="consultorioDoctor" th:value="${tramite.consultorioDoctor}" class="form-control">
+      </div>
+
+      <div class="col-md-12">
+        <label>Fecha y Hora de la Cita</label>
+        <input type="text" name="fechaHora" th:value="${tramite.fechaHora}" class="form-control" placeholder="Escriba fecha y hora">
+      </div>
+
+      <div class="col-12 text-center">
+        <input type="submit" value="Actualizar" class="btn btn-primary px-5 mt-3">
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
