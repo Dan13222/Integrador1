@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Centro Médico N & A S.A.C. - Servicios Médicos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa 0%, #c0e8f9 100%);
+      color: #003344;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0, 200, 255, 0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 200, 255, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 35px rgba(0, 200, 255, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #0073e6;
+      text-shadow: 0 0 8px rgba(0, 180, 255, 0.5);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8em;
+      color: #00bcd4;
+      text-shadow: 0 0 6px rgba(0, 188, 212, 0.4);
+      margin-bottom: 15px;
+    }
+
+    .decor-line {
+      width: 80%;
+      height: 4px;
+      background: linear-gradient(to right, #00bcd4, transparent, #00bcd4);
+      margin: 20px auto;
+      border-radius: 2px;
+      animation: shine 3s linear infinite;
+    }
+
+    @keyframes shine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+      border: 1px solid rgba(0, 188, 212, 0.3);
+      padding: 15px;
+      text-align: left;
+      background: rgba(0, 188, 212, 0.05);
+      transition: background 0.3s ease;
+    }
+
+    th {
+      background: rgba(0, 188, 212, 0.2);
+      color: #0073e6;
+      font-weight: bold;
+      text-shadow: 0 0 4px rgba(0, 188, 212, 0.3);
+      text-transform: uppercase;
+    }
+
+    tr:hover td {
+      background: rgba(0, 188, 212, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 14px;
+      }
+
+      .container {
+        margin: 20px;
+        padding: 25px;
+      }
+
+      h1 { font-size: 2em; }
+      h2 { font-size: 1.5em; }
+      table th, table td { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Centro Médico N & A S.A.C.</h1>
+    <h2>Servicios Médicos</h2>
+    <div class="decor-line"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Servicio</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Consultas Médicas</td>
+          <td>Evaluación y diagnóstico general para pacientes, seguimiento de enfermedades y planes de tratamiento personalizados.</td>
+        </tr>
+        <tr>
+          <td>Laboratorio Clínico</td>
+          <td>Análisis de muestras sanguíneas, orina y otros para diagnósticos precisos y oportunos.</td>
+        </tr>
+        <tr>
+          <td>Radiología</td>
+          <td>Imágenes diagnósticas por rayos X, ultrasonidos, tomografía computarizada (TC) y resonancia magnética (RM).</td>
+        </tr>
+        <tr>
+          <td>Hospitalización</td>
+          <td>Camas y atención médica especializada para pacientes que requieren cuidados continuos y recuperación.</td>
+        </tr>
+        <tr>
+          <td>Emergencias</td>
+          <td>Atención inmediata y profesional en casos de urgencias médicas 24/7.</td>
+        </tr>
+        <tr>
+          <td>Rehabilitación Física</td>
+          <td>Terapias para recuperación motora, funcional y alivio del dolor post lesiones o cirugías.</td>
+        </tr>
+        <tr>
+          <td>Cirugía Ambulatoria</td>
+          <td>Procedimientos quirúrgicos menores que no requieren hospitalización prolongada.</td>
+        </tr>
+        <tr>
+          <td>Atención Domiciliaria</td>
+          <td>Servicio médico y de enfermería en casa para pacientes con movilidad reducida o postoperatorios.</td>
+        </tr>
+        <tr>
+          <td>Vacunación</td>
+          <td>Aplicación de vacunas para prevención de enfermedades en niños, adultos y adultos mayores.</td>
+        </tr>
+        <tr>
+          <td>Control Prenatal</td>
+          <td>Seguimiento integral de la salud materna y desarrollo fetal durante el embarazo.</td>
+        </tr>
+        <tr>
+          <td>Odontología</td>
+          <td>Tratamientos dentales completos, incluyendo limpiezas, ortodoncia e implantes.</td>
+        </tr>
+        <tr>
+          <td>Psicología</td>
+          <td>Atención profesional en salud mental, apoyo emocional y terapia psicológica.</td>
+        </tr>
+        <tr>
+          <td>Otros Servicios</td>
+          <td>Consultas especializadas, diagnósticos avanzados y atención personalizada según necesidad.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="decor-line"></div>
+  </div>
+</body>
+</html>
