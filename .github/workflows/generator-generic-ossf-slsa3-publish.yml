@@ -1,0 +1,61 @@
+name: HERRAMIENTAS PARA EL DESARROLLO
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      digests: ${{ steps.hash.outputs.digests }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # ========================================================
+      #
+      # Step 1: BUILD, TEST, AND GENERATE ARTIFACTS (CI Core)
+      #
+      # *Teoría Aplicada: Entornos Aislados, Función Principal (Compilación y Pruebas)*
+      # ========================================================
+      
+      # 1. Configurar Entorno Java 21 (Teoría: Entornos Aislados)
+      - name: Setup Java JDK (21)
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21' # ¡VERSION 21 APLICADA!
+          distribution: 'temurin'
+          cache: 'maven' 
+          
+      # 2. Compilar y Ejecutar Pruebas (Teoría: Función Principal / Feedback Rápido)
+      - name: Compile, Test, and Package
+        # Se asume que usas Maven, sino, cámbialo a 'gradle clean build'
+        run: mvn clean package -DskipTests=false
+        
+      # ========================================================
+      #
+      # Step 2: Add a step to generate the provenance subjects
+      #
+      # ========================================================
+      - name: Generate subject for provenance
+        id: hash
+        run: |
+          set -euo pipefail
+          
+          # *IMPORTANTE:* Lista el artefacto .jar generado por la compilación de Maven
+          files=$(find target/ -name "*.jar" -type f | xargs)
+          
+          # Genera los sujetos (base64 encoded).
+          echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
+
+  provenance:
+    needs: [build]
+    permissions:
+      actions: read    # To read the workflow path.
+      id-token: write # To sign the provenance.
+      contents: write # To add assets to a release.
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
+    with:
+      base64-subjects: "${{ needs.build.outputs.digests }}"
+      upload-assets: true # Optional: Upload to a new release
