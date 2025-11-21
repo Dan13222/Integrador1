@@ -11,6 +11,10 @@ jobs:
     outputs:
       digests: ${{ steps.hash.outputs.digests }}
 
+    defaults:
+      run:
+        working-directory: herramientasdesedesarrollo   # 👈 SE AGREGA ESTO
+
     steps:
       - uses: actions/checkout@v4
 
@@ -24,7 +28,7 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: 'gradle' 
+          cache: 'gradle'
 
       # 2. Compilar y Ejecutar Pruebas
       - name: Compile, Test, and Package
@@ -41,15 +45,15 @@ jobs:
           # List los artefactos .jar generados por Gradle
           files=$(find build/libs/ -name "*.jar" -type f | xargs)
           
-          # GenerA los sujetos (base64 encoded)
-          echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
+          # Generar los sujetos (base64 encoded)
+          echo "digests=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
   provenance:
     needs: [build]
     permissions:
-      actions: read    # To read the workflow path.
-      id-token: write # To sign the provenance.
-      contents: write # To add assets to a release.
+      actions: read
+      id-token: write
+      contents: write
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
     with:
       base64-subjects: "${{ needs.build.outputs.digests }}"
