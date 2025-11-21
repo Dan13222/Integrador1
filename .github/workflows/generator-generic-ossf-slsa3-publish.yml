@@ -18,16 +18,15 @@ jobs:
         run: |
           echo "📁 Carpeta actual:"
           pwd
-          echo "📁 Archivos en raíz del repositorio:"
+          echo "📁 Archivos en la raíz del repositorio:"
           ls -la
           echo "📁 Archivos dentro de herramientasdedesarrollo:"
           ls -la herramientasdedesarrollo || true
 
-      # ========================================================
-      # Step 1: BUILD, TEST, AND GENERATE ARTIFACTS (CI Core)
-      # ========================================================
+      # ============================
+      # Step 1: BUILD WITH GRADLE
+      # ============================
 
-      # 1. Configurar Entorno Java 21
       - name: Setup Java JDK (21)
         uses: actions/setup-java@v4
         with:
@@ -35,30 +34,31 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      # 2. DAR PERMISOS Y EJECUTAR GRADLE WRAPPER
       - name: Compile, Test, and Package
         run: |
           cd herramientasdedesarrollo
 
-          echo "👉 Contenido de herramientasdedesarrollo:"
+          echo "👉 Contenido de la carpeta actual:"
           ls -la
 
-          echo "🔧 Asignando permisos al gradlew"
+          echo "🔧 Dando permisos al gradlew"
           chmod +x gradlew
 
           echo "🏗️ Ejecutando build..."
           ./gradlew clean build
 
-      # ========================================================
-      # Step 2: Generate provenance subjects
-      # ========================================================
+      # =========================================
+      # Step 2: Generate provenance subject hash
+      # =========================================
       - name: Generate subject for provenance
         id: hash
         run: |
           cd herramientasdedesarrollo
           set -euo pipefail
-          
+
+          echo "📦 Buscando archivos .jar en build/libs/"
           files=$(find build/libs/ -name "*.jar" -type f | xargs)
+          echo "🔐 Generando hash..."
           echo "digests=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
   provenance:
