@@ -18,15 +18,16 @@ jobs:
         run: |
           echo "📁 Carpeta actual:"
           pwd
-          echo "📁 Archivos en la raíz del repositorio:"
+          echo "📁 Archivos en raíz del repositorio:"
           ls -la
-          echo "📁 Archivos dentro de herramientasdedesarrollo:"
-          ls -la herramientasdedesarrollo || true
+          echo "📁 Archivos dentro de Integrador1:"
+          ls -la Integrador1 || true
+          echo "📁 Archivos dentro de Integrador1/herramientasdedesarrollo:"
+          ls -la Integrador1/herramientasdedesarrollo || true
 
-      # ============================
-      # Step 1: BUILD WITH GRADLE
-      # ============================
-
+      # ========================================================
+      # STEP 1: CONFIGURAR JAVA
+      # ========================================================
       - name: Setup Java JDK (21)
         uses: actions/setup-java@v4
         with:
@@ -34,31 +35,32 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
+      # ========================================================
+      # STEP 2: EJECUTAR GRADLE
+      # ========================================================
       - name: Compile, Test, and Package
         run: |
-          cd herramientasdedesarrollo
+          cd Integrador1/herramientasdedesarrollo
 
-          echo "👉 Contenido de la carpeta actual:"
+          echo "👉 Contenido del proyecto:"
           ls -la
 
-          echo "🔧 Dando permisos al gradlew"
+          echo "🔧 Dando permisos a gradlew"
           chmod +x gradlew
 
           echo "🏗️ Ejecutando build..."
           ./gradlew clean build
 
-      # =========================================
-      # Step 2: Generate provenance subject hash
-      # =========================================
+      # ========================================================
+      # STEP 3: GENERAR PROVENANCE
+      # ========================================================
       - name: Generate subject for provenance
         id: hash
         run: |
-          cd herramientasdedesarrollo
+          cd Integrador1/herramientasdedesarrollo
           set -euo pipefail
-
-          echo "📦 Buscando archivos .jar en build/libs/"
+          
           files=$(find build/libs/ -name "*.jar" -type f | xargs)
-          echo "🔐 Generando hash..."
           echo "digests=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
   provenance:
