@@ -11,12 +11,17 @@ jobs:
     outputs:
       digests: ${{ steps.hash.outputs.digests }}
 
-    defaults:
-      run:
-        working-directory: herramientasdesedesarrollo   # 👈 SE AGREGA ESTO
-
     steps:
       - uses: actions/checkout@v4
+
+      - name: Debug directory structure
+        run: |
+          echo "📁 Carpeta actual:"
+          pwd
+          echo "📁 Archivos en raíz del repositorio:"
+          ls -la
+          echo "📁 Archivos dentro de herramientasdesedesarrollo:"
+          ls -la herramientasdesedesarrollo || true
 
       # ========================================================
       # Step 1: BUILD, TEST, AND GENERATE ARTIFACTS (CI Core)
@@ -30,9 +35,19 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      # 2. Compilar y Ejecutar Pruebas
+      # 2. DAR PERMISOS Y EJECUTAR GRADLE WRAPPER
       - name: Compile, Test, and Package
-        run: ./gradlew clean build
+        run: |
+          cd herramientasdesedesarrollo
+
+          echo "👉 Contenido de herramientasdesedesarrollo:"
+          ls -la
+
+          echo "🔧 Asignando permisos al gradlew (por si Git los quita)"
+          chmod +x gradlew
+
+          echo "🏗️ Ejecutando build..."
+          ./gradlew clean build
 
       # ========================================================
       # Step 2: Generate provenance subjects
@@ -40,12 +55,10 @@ jobs:
       - name: Generate subject for provenance
         id: hash
         run: |
+          cd herramientasdesedesarrollo
           set -euo pipefail
           
-          # List los artefactos .jar generados por Gradle
           files=$(find build/libs/ -name "*.jar" -type f | xargs)
-          
-          # Generar los sujetos (base64 encoded)
           echo "digests=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
   provenance:
@@ -58,3 +71,4 @@ jobs:
     with:
       base64-subjects: "${{ needs.build.outputs.digests }}"
       upload-assets: true
+
