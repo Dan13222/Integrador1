@@ -1,4 +1,5 @@
 name: HERRAMIENTAS PARA EL DESARROLLO
+
 on:
   workflow_dispatch:
   release:
@@ -14,39 +15,33 @@ jobs:
       - uses: actions/checkout@v4
 
       # ========================================================
-      #
       # Step 1: BUILD, TEST, AND GENERATE ARTIFACTS (CI Core)
-      #
-      # *Teoría Aplicada: Entornos Aislados, Función Principal (Compilación y Pruebas)*
       # ========================================================
-      
-      # 1. Configurar Entorno Java 21 (Teoría: Entornos Aislados)
+
+      # 1. Configurar Entorno Java 21
       - name: Setup Java JDK (21)
         uses: actions/setup-java@v4
         with:
-          java-version: '21' # ¡VERSION 21 APLICADA!
+          java-version: '21'
           distribution: 'temurin'
-          cache: 'maven' 
-          
-      # 2. Compilar y Ejecutar Pruebas (Teoría: Función Principal / Feedback Rápido)
+          cache: 'gradle' 
+
+      # 2. Compilar y Ejecutar Pruebas
       - name: Compile, Test, and Package
-        # Se asume que usas Maven, sino, cámbialo a 'gradle clean build'
-        run: mvn clean package -DskipTests=false
-        
+        run: ./gradlew clean build
+
       # ========================================================
-      #
-      # Step 2: Add a step to generate the provenance subjects
-      #
+      # Step 2: Generate provenance subjects
       # ========================================================
       - name: Generate subject for provenance
         id: hash
         run: |
           set -euo pipefail
           
-          # *IMPORTANTE:* Lista el artefacto .jar generado por la compilación de Maven
-          files=$(find target/ -name "*.jar" -type f | xargs)
+          # List los artefactos .jar generados por Gradle
+          files=$(find build/libs/ -name "*.jar" -type f | xargs)
           
-          # Genera los sujetos (base64 encoded).
+          # GenerA los sujetos (base64 encoded)
           echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
   provenance:
@@ -58,4 +53,4 @@ jobs:
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
     with:
       base64-subjects: "${{ needs.build.outputs.digests }}"
-      upload-assets: true # Optional: Upload to a new release
+      upload-assets: true
